@@ -8,6 +8,9 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - ask_exercise
+  - ask_eat_healthy
+  - ask_stress
 
 responses:
   utter_greet:
@@ -28,6 +31,16 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_stress_info:
+  - text: "Fuck OFF! You depressed peice of Shit!."
+
+  utter_eat_info:
+  - text: "Eat your fucking Shit!"
+  
+  utter_exercise_info:
+  - text: "Hey Faty Shit!"
+
 
 session_config:
   session_expiration_time: 60

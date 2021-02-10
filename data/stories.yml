@@ -28,3 +28,19 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: ask diet questions
+  steps:
+  - intent: ask_eat_healthy
+  - action: utter_eat_info
+
+- story: ask stress questions
+  steps:
+  - intent: ask_stress
+  - action: utter_stress_info
+
+- story: ask exercise questions
+  steps:
+  - intent: ask_exercise
+  - action: utter_exercise_info
+  
