@@ -11,3 +11,35 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Activate form
+  steps:
+  - intent: utter_greet
+  - action: health_form
+  - active_loop: health_form
+
+- rule: Submit form
+  condition:
+  # Condition that form is active.
+  - active_loop: health_form
+  steps:
+  # Form is deactivated
+  - action: health_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: utter_submit
+  - action: utter_slots_values
+
+- rule: Example of an unhappy path
+  condition:
+  # Condition that form is active.
+  - active_loop: restaurant_form
+  steps:
+  # This unhappy path handles the case of an intent `chitchat`.
+  - intent: out_of_scope
+  - action: utter_ask_continue
+  # Return to form after handling the `chitchat` intent
+  - action: restaurant_form
+  - active_loop: restaurant_form
