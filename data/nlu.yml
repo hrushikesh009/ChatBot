@@ -178,7 +178,7 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
-- intent: ask_stress
+- intent: ask_lower_stress
   examples: |
     - What to do if I am too stressed?
     - How can I lower stress level?
