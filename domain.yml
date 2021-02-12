@@ -87,6 +87,9 @@ forms:
       - type: from_intent
         intent: affirm
         value: true
+      - type: from_intent
+        intent: deny
+        value: false
     exercise:
       - type: from_entity
         entity: exercise
@@ -98,7 +101,7 @@ forms:
         entity: stress
     diet:
       - type: from_text
-        intent: [inform,affirm]
+        intent: [inform]
     goal:
       - type: from_text
         intent: inform
