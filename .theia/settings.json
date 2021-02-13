@@ -1,4 +1,4 @@
 {
     "editor.autoSave": "on",
-    "python.pythonPath": "/home/gitpod/.pyenv/versions/3.8.7/bin/python"
+    "python.pythonPath": "/home/gitpod/.pyenv/shims/python"
 }

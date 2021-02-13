@@ -12,9 +12,11 @@ import os
 
 load_dotenv()
 
-airtable_api_key="keygndbwgYAXGKCM0"
-base_id="appK9sTQeYGRttlxy"
-table_name="Table%201"
+airtable_api_key=os.getenv("AIRTABLE_API_KEY")
+base_id=os.getenv("BASE_ID")
+table_name=os.getenv("TABLE_NAME")
+
+
 
 def create_health_log(confirm_exercise, exercise, sleep, diet, stress, goal):
     request_url=f"https://api.airtable.com/v0/{base_id}/{table_name}?api_key={airtable_api_key}"
