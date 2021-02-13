@@ -9,12 +9,15 @@ from rasa_sdk.events import SlotSet, EventType
 import requests
 import json
 import os
+import config
 
 load_dotenv()
 
-airtable_api_key="keygndbwgYAXGKCM0"
-base_id="appK9sTQeYGRttlxy"
-table_name="Table%201"
+airtable_api_key = config.api_key
+base_id=os.getenv("BASE_ID")
+table_name=os.getenv("Table%201")
+
+print(airtable_api_key)
 
 def create_health_log(confirm_exercise, exercise, sleep, diet, stress, goal):
     request_url=f"https://api.airtable.com/v0/{base_id}/{table_name}?api_key={airtable_api_key}"
