@@ -33,22 +33,40 @@ nlu:
 
 - intent: affirm
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+   - indeed
+   - of course
+   - that sounds good
+   - correct
+   - sure
+   - ok
+   - why not
+   - ok great
+   - yes I did
+   - yeah, great
+   - pretty good
+   - fine
+   - You bet
+   - I sure did
+   - more or less
+   - yeah
+   - yes
+   - y
 
 - intent: deny
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+   - never
+   - I don't think so
+   - no way
+   - not really
+   - none
+   - absolutely not
+   - no thanks
+   - didn't do any
+   - no I didn't
+   - could have been better
+   - not great
+   - nope
+   - no 
 
 - intent: mood_great
   examples: |
@@ -84,6 +102,75 @@ nlu:
     - so saad
     - so sad
 
+- intent: thankyou
+  examples: |
+    - okay great thanks
+    - thank you
+    - sure thanks
+    - thanks bye
+    - thanks
+
+- intent: inform
+  examples: |
+    - a full [8 hours]{"entity": "sleep"}
+    - only [four hours]{"entity": "sleep"}
+    - about [six hours]{"entity": "sleep"}
+    - [low]{"entity": "stress"}
+    - [medium]{"entity": "stress"}
+    - [high]{"entity": "stress"}
+    - Yes, I went for a [run]{"entity": "exercise"}
+    - uh huh an hour of [yoga]{"entity": "exercise"}
+    - yep, I went for a [hike]{"entity": "exercise"}
+    - Yes I took the dog for a [walk]{"entity": "exercise"}
+    - Yeah, I played [tennis]{"entity": "exercise"}  
+    - I went [swimming]{"entity": "exercise"}
+    - Took a [spin class]{"entity": "exercise"}
+    - Did some [boxing]{"entity": "exercise"}
+    - [rock climbing]{"entity": "exercise"}
+    - played some [basketball]{"entity": "exercise"}
+    - played [football]{"entity": "exercise"}
+    - I did a [workout video]{"entity": "exercise"}
+    - I want to get up early and go for a run
+    - Be more patient with my family
+    - Try to be a better friend
+    - Make sure to eat better tomorrow
+    - eat less junk food
+    - eat better
+    - spend less time on my phone
+    - don't procrastinate
+    - Go to bed earlier
+    - Don't stay up so late
+    - try to make some time to meditate
+    - i ate pretty healthy overall
+    - lots of fruits and vegetables
+    - I ate a salad
+    - too many snacks
+    - too many sweets
+    - too much junk food
+    - a lot of carbs
+    - too much fatty food
+    - Get more exercise
+
+- intent: out_of_scope
+  examples: |
+    - that's not what I want to do
+    - wait stop
+    - you're no help
+    - this is no help at all
+    - how old are you
+    - I want to order a pizza
+    - tell me the weather
+    - this isn't working
+    - I already told you that
+    - don't like that
+    - I don't want to tell you that
+    - none of your business
+    - that's not right
+    - stop asking
+    - nevermind
+    - I want to do something else
+    - I changed my mind
+
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -91,7 +178,7 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
-- intent: ask_stress
+- intent: ask_lower_stress
   examples: |
     - What to do if I am too stressed?
     - How can I lower stress level?

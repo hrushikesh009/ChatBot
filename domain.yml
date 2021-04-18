@@ -1,45 +1,112 @@
 version: "2.0"
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - ask_exercise
-  - ask_eat_healthy
-  - ask_stress
+ - greet
+ - goodbye
+ - affirm
+ - mood_great
+ - mood_unhappy
+ - deny
+ - bot_challenge
+ - inform
+ - thankyou
+ - out_of_scope
+ - ask_lower_stress
+ - ask_eat_healthy
+ - ask_exercise
+
+slots:
+  confirm_exercise:
+    type: text
+    influence_conversation: false
+  exercise:
+    type: text
+    influence_conversation: false
+  sleep:
+    type: text
+    influence_conversation: false
+  stress:
+    type: text
+    influence_conversation: false
+  diet:
+    type: text
+    influence_conversation: false
+  goal:
+    type: text
+    influence_conversation: false
+
+
+
+entities:
+ - exercise
+ - sleep
+ - stress
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
+  - text: "Hi! It's time for your daily wellness check. Tracking healthy habits is a great way to measure your progress over time. Would you like to answer a few questions about your health?"
   utter_goodbye:
-  - text: "Bye"
-
+  - text: "See you tomorrow. Bye!"
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
-
+  utter_ask_confirm_exercise:
+  - text: Did you exercise yesterday? Don't sweat it if you didn't run a marathon - walks count!
+  utter_ask_exercise:
+  - text: What kind of exercise did you do 💪 ?
+  utter_ask_sleep:
+  - text: "How much sleep did you get 💤  last night?"
+  utter_ask_diet:
+  - text: "Did you stick to a healthy diet 🥦  yesterday?"
+  utter_ask_stress:
+  - text: "Is your stress level low, medium, or high 🧘 ?"
+  utter_ask_goal:
+  - text: "Setting goals - even small ones - is a great way to focus your day. What do you want to accomplish today 🥇 ?"
+  utter_slots_values:
+  - text: "Here's your daily wellness log:\n
+            - Exercised?: {confirm_exercise}\n
+            - Type of exercise: {exercise}\n
+            - Sleep: {sleep}\n
+            - Stuck to a healthy diet?: {diet}\n
+            - Stress level: {stress}\n
+            - Goal: {goal}"
+  utter_no_worries:
+  - text: "No problem :)"
+  utter_ask_continue:
+  - text: "Sorry, I don't quite understand. Do you want to continue?"
   utter_stress_info:
-  - text: "Fuck OFF! You depressed peice of Shit!."
-
-  utter_eat_info:
-  - text: "Eat your fucking Shit!"
-  
+  - text: "It's ok to feel overwhelmed at times. Try to set realistic expectations and exercise time management techniques, like dividing large tasks into more manageable pieces. Relaxation techniques, like deep breathing and meditation, can also be beneficial."
   utter_exercise_info:
-  - text: "Hey Faty Shit!"
+  - text: "Most healthy adults should aim to get about 150 min of moderate exercise per week. This includes activities like a brisk walk or yard work."
+  utter_diet_info:
+  - text: "A healthy diet includes fruits and vegetables, whole grains, dairy, lean protein, and plant-based fats. While there is room in a healthy diet for treats, added sugar should be eaten sparingly. Aim for a variety of foods, and balance."
+actions:
+  - action_submit
+forms:
+  health_form:
+    confirm_exercise:
+      - type: from_intent
+        intent: affirm
+        value: true
+      - type: from_intent
+        intent: deny
+        value: false
+    exercise:
+      - type: from_entity
+        entity: exercise
+    sleep:
+      - type: from_entity
+        entity: sleep
+    stress:
+      - type: from_entity
+        entity: stress
+    diet:
+      - type: from_text
+        intent: [inform]
+    goal:
+      - type: from_text
+        intent: inform
+    
+    
 
 
 session_config:

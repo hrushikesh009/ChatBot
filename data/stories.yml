@@ -1,46 +1,65 @@
 version: "2.0"
 
 stories:
-
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
-
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
-
 - story: ask diet questions
   steps:
   - intent: ask_eat_healthy
-  - action: utter_eat_info
+  - action: utter_diet_info
 
 - story: ask stress questions
   steps:
-  - intent: ask_stress
+  - intent: ask_lower_stress
   - action: utter_stress_info
 
-- story: ask exercise questions
+- story: ask exercise
   steps:
   - intent: ask_exercise
   - action: utter_exercise_info
+
+# - story: Survey happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+#   - active_loop: null
+#   - action: utter_slots_values
+#   - intent: thankyou
   
+# - story: User interrupts the form and doesn't want to continue
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+#   - intent: out_of_scope
+#   - action: utter_ask_continue
+#   - intent: deny
+#   - action: action_deactivate_loop
+#   - active_loop: null
+#   - action: utter_goodbye
+
+# - story: User interrupts the form and but want to continue
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+#   - intent: out_of_scope
+#   - action: utter_ask_continue
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+#   - action: utter_slots_values
+#   - action: utter_goodbye
+
+- story: no survey
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: deny
+  - action: utter_no_worries
+  - action: utter_goodbye
