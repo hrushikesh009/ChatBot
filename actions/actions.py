@@ -1,5 +1,5 @@
 from typing import Any, Text, Dict, List, Union
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 
 from rasa_sdk import Action, Tracker
@@ -10,11 +10,11 @@ import requests
 import json
 import os
 
-load_dotenv()
+#load_dotenv()
 
-airtable_api_key = os.getenv("AIRTABLE_API_KEY")
-base_id = os.getenv("BASE_ID")
-table_name = os.getenv("TABLE_NAME")
+airtable_api_key = "keygndbwgYAXGKCM0"#os.getenv("AIRTABLE_API_KEY")
+base_id = "appK9sTQeYGRttlxy"#os.getenv("BASE_ID")
+table_name = "Table%201"#os.getenv("TABLE_NAME")
 
 
 def create_health_log(confirm_exercise, exercise, sleep, diet, stress, goal):
