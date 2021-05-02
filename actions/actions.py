@@ -129,8 +129,26 @@ class ActionLookupAddress(Action):
     ) -> List[Dict[Text, Any]]:
         
         dispatcher.utter_message(
-           text="We could not Found address Can you please enter address here!")
+           text="Address added!")
         return[]
+
+class ActionAddAddress(Action):
+
+    def name(self) -> Text:
+        return "action_address_lookup"
+
+    def run(
+        self,
+        dispatcher,
+        tracker: Tracker,
+        domain: "DomainDict"
+    ) -> List[Dict[Text, Any]]:
+
+        current_address = tracker.get_slot("address")
+        
+        dispatcher.utter_message(
+           text="We could not Found address Can you please enter address here!")
+        return[SlotSet("address", current_address)]
     
 class ActionPlaceOrder(Action):
 

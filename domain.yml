@@ -3,12 +3,12 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- affirm
-- payment_options
-- greet
 - address
+- affirm
 - option_selection
+- greet
 - option_selected_recommend
+- payment_options
 - goodbye
 - mood_great
 - mood_unhappy
@@ -21,7 +21,6 @@ intents:
 - ask_eat_healthy
 - ask_exercise
 entities:
-- address
 - exercise
 - option_select
 - payment_type
@@ -126,6 +125,7 @@ actions:
 - utter_bot_info
 - utter_order_placed
 - utter_select_options
+- action_add_address
 forms:
   health_form:
     confirm_exercise:
@@ -146,8 +146,7 @@ forms:
       entity: stress
     diet:
     - type: from_text
-      intent:
-      - inform
+      intent: inform
     goal:
     - type: from_text
       intent: inform

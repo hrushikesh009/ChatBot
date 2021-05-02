@@ -16,25 +16,29 @@ stories:
 #   - intent: ask_exercise
 #   - action: utter_exercise_info
 
-- story: happy path to recommend products
-  steps:
-  - intent: greet
-  - action: utter_bot_info
-  - action: utter_select_options
-  - intent: option_selected_recommend
-  - action: action_recommend_products
-  - slot_was_set:
-    - requested_slot: null
-  - intent: option_selection
-  - action: utter_ask_place_order
-  - intent: affirm
-  - action: action_address_lookup
-  - intent: address
-  - action: utter_ask_payment_options
-  - intent: payment_options
-  - action: action_place_order
-  - intent: affirm
-  - action: utter_order_placed
+# - story: happy path to recommend products
+#   steps:
+#   - intent: greet
+#   - action: utter_bot_info
+#   - action: utter_select_options
+#   - intent: option_selected_recommend
+#   - action: action_recommend_products
+#   - slot_was_set:
+#       - option_select: '1'
+#   - intent: option_selection
+#   - action: utter_ask_place_order
+#   - intent: affirm
+#   - action: action_address_lookup
+#   - slot_was_set:
+#       - address: 'F 702 Poonam Orchid'
+#   - intent: address
+#   - action: utter_ask_payment_options
+#   - slot_was_set:
+#       - payment_type: 'Cod'
+#   - intent: payment_options
+#   - action: action_place_order
+#   - intent: affirm
+#   - action: utter_order_placed
 
 # - story: Survey happy path
 #   steps:
@@ -100,23 +104,23 @@ stories:
     - option_select: '4'
   - action: utter_ask_place_order
   - intent: affirm
-
-- story: interactive_story_1
-  steps:
-  - intent: greet
-  - action: utter_bot_info
-  - action: utter_select_options
-  - intent: option_selection
-    entities:
-    - option_select: '3'
-  - slot_was_set:
-    - option_select: '3'
-  - action: utter_ask_place_order
-  - intent: affirm
   - action: action_address_lookup
+  - slot_was_set:
+    - address: null
   - intent: address
+  - action: action_add_address
+  - slot_was_set:
+    - address: 'F 702 Poonam Orchid'
   - action: utter_ask_payment_options
+  - slot_was_set:
+    - payment_type: null
   - intent: payment_options
+    entities:
+    - payment_type: 'Cod'
+  - slot_was_set:
+    - payment_type: 'Cod'
   - action: action_place_order
   - intent: affirm
   - action: utter_order_placed
+
+

@@ -122,14 +122,21 @@ nlu:
     - [8](option_select)
     - [9](option_select)
     - [10](option_select)
-    - [3](option_select)
+    - [6](option_select)
+
 - intent: address
   examples: |
     - F 702 Poonam Orchid
     - G 605 Yashwant Nagar
     - A 708 Gandhi Nagar
     - B 403 Vijay Nagar
-    - C 507 Virat Nagar
+    - E 201 Global City
+    - D 302 Sheetal Nagar
+    - H 504 Sanskrit Nagar
+    - F 101 New Nagar
+    - B 509 rose Nagar
+    - A 203 Virat Nagar
+
 - intent: payment_options
   examples: |
     - [Cod](payment_type)
