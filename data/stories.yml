@@ -24,7 +24,7 @@ stories:
 #   - intent: option_selected_recommend
 #   - action: action_recommend_products
 #   - slot_was_set:
-#       - option_select: '1'
+#       - category_type: '1'
 #   - intent: option_selection
 #   - action: utter_ask_place_order
 #   - intent: affirm
@@ -88,7 +88,7 @@ stories:
 #   - action: utter_no_worries
 #   - action: utter_goodbye
 
-- story: interactive_story_1
+- story: happy path for recommendend Products
   steps:
   - intent: greet
   - action: utter_bot_info
@@ -96,7 +96,7 @@ stories:
   - intent: option_selected_recommend
   - action: action_recommend_products
   - slot_was_set:
-    - requested_slot: null
+    - option_select: null
   - intent: option_selection
     entities:
     - option_select: '4'
@@ -108,9 +108,52 @@ stories:
   - slot_was_set:
     - address: null
   - intent: address
-  - action: action_add_address
   - slot_was_set:
     - address: 'F 702 Poonam Orchid'
+  - action: action_add_address
+  - action: utter_ask_payment_options
+  - slot_was_set:
+    - payment_type: null
+  - intent: payment_options
+    entities:
+    - payment_type: 'Cod'
+  - slot_was_set:
+    - payment_type: 'Cod'
+  - action: action_place_order
+  - intent: affirm
+  - action: utter_order_placed
+
+- story: happy path for Search Provider
+  steps:
+  - intent: greet
+  - action: utter_bot_info
+  - action: utter_select_options
+  - intent: option_search_provider
+  - action: utter_ask_category_type
+  - slot_was_set:
+    - category_type: null
+  - intent: Category
+    entities:
+    - category_type: 'Mobile'
+  - slot_was_set:
+    - category_type: 'Mobile'
+  - action: action_search_products
+  - slot_was_set:
+    - option_select: null
+  - intent: option_selection
+    entities:
+    - option_select: '4'
+  - slot_was_set:
+    - option_select: '4'
+  - action: utter_ask_place_order
+  - intent: affirm
+  - action: action_address_lookup
+  - slot_was_set:
+    - address: null
+  - intent: address
+  - slot_was_set:
+    - address: 'F 702 Poonam Orchid'
+  - action: action_add_address
   - action: utter_ask_payment_options
   - slot_was_set:
     - payment_type: null

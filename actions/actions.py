@@ -56,7 +56,7 @@ from rasa_sdk.events import SlotSet, EventType
 #         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
 #     ) -> List[EventType]:
 #         requried_slots = ["confirm_exercise", "exercise",
-#                           "sleep", "stress", "diet", "goal","option_selection","address","payment_options"]
+#                           "sleep", "stress", "diet", "goal","option_select","address","payment_options"]
 
 #         for slot_name in requried_slots:
 #             if tracker.slots.get(slot_name) is None:
@@ -114,7 +114,27 @@ class ActionRecommender(Action):
         
         dispatcher.utter_message(
            response ="utter_ask_user_to_selected_product")
-        return[SlotSet("requested_slot", option_select)]
+        return[]
+
+class ActionSearchProvider(Action):
+
+    def name(self) -> Text:
+        return "action_search_products"
+
+    def run(
+        self,
+        dispatcher,
+        tracker: Tracker,
+        domain: "DomainDict"
+    ) -> List[Dict[Text, Any]]:
+
+        Category = tracker.get_slot("category_type")
+        
+        dispatcher.utter_message(
+           response ="utter_ask_user_to_selected_product")
+        return[]
+
+
 
 class ActionLookupAddress(Action):
 
@@ -129,13 +149,13 @@ class ActionLookupAddress(Action):
     ) -> List[Dict[Text, Any]]:
         
         dispatcher.utter_message(
-           text="Address added!")
+           text="We could not Found address Can you please enter address here!")
         return[]
 
 class ActionAddAddress(Action):
 
     def name(self) -> Text:
-        return "action_address_lookup"
+        return "action_add_address"
 
     def run(
         self,
@@ -144,10 +164,10 @@ class ActionAddAddress(Action):
         domain: "DomainDict"
     ) -> List[Dict[Text, Any]]:
 
-        current_address = tracker.get_slot("address")
+        current_address = tracker.latest_message['text']
         
         dispatcher.utter_message(
-           text="We could not Found address Can you please enter address here!")
+           text=current_address)
         return[SlotSet("address", current_address)]
     
 class ActionPlaceOrder(Action):

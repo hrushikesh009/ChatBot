@@ -20,7 +20,10 @@ intents:
 - ask_lower_stress
 - ask_eat_healthy
 - ask_exercise
+- option_search_provider
+- Category
 entities:
+- category_type
 - exercise
 - option_select
 - payment_type
@@ -54,6 +57,9 @@ slots:
   payment_type:
     type: text
     influence_conversation: false
+  category_type:
+    type: text
+    influence_conversation: false
 responses:
   utter_bot_info:
   - text: Hey there this is a bot!
@@ -64,16 +70,16 @@ responses:
   utter_ask_payment_options:
   - text: Please select the Payment Options! :)
     buttons:
-    - title: Cod
-      payload: /payment_options
-    - title: Paytm
-      payload: /payment_options
-    - title: Debit Card
-      payload: /payment_options
-    - title: Credit Card
-      payload: /payment_options
-    - title: Google Pay
-      payload: /payment_options
+    - title: "Cod"
+      payload: "Cod"
+    - title: "Paytm"
+      payload: "Paytm"
+    - title: "Debit Card"
+      payload: "Debit Card"
+    - title: "Credit Card"
+      payload: "Credit Card"
+    - title: "Google Pay"
+      payload: "Google Pay"
   utter_ask_user_to_selected_product:
   - text: select 1 2 3 4.. 10
   utter_order_placed:
@@ -84,6 +90,8 @@ responses:
   - text: See you tomorrow. Bye!
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
+  utter_ask_category_type:
+  - text: Which category of product would you like to search for?
   utter_ask_confirm_exercise:
   - text: Did you exercise yesterday? Don't sweat it if you didn't run a marathon - walks count!
   utter_ask_exercise:
@@ -126,6 +134,8 @@ actions:
 - utter_order_placed
 - utter_select_options
 - action_add_address
+- action_search_products
+ 
 forms:
   health_form:
     confirm_exercise:

@@ -144,6 +144,25 @@ nlu:
     - [Credit Card](payment_type)
     - [Paytm](payment_type)
     - [Google Pay](payment_type)
+
+- intent: option_search_provider
+  examples: |
+    - I could like to search a product
+    - Search a Product
+    - I opt for Search option
+    - Search a Product for me 
+    - Search
+
+- intent: Category
+  examples: |
+    - [Electronics](category_type)
+    - [Mobile](category_type)
+    - [Clothing](category_type)
+    - [Sports](category_type)
+    - [Books](category_type)
+    - [TV](category_type)
+    
+
 - intent: inform
   examples: |
     - a full [8 hours](sleep)
