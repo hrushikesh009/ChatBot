@@ -1,20 +1,32 @@
-version: "2.0"
-
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
 intents:
- - greet
- - goodbye
- - affirm
- - mood_great
- - mood_unhappy
- - deny
- - bot_challenge
- - inform
- - thankyou
- - out_of_scope
- - ask_lower_stress
- - ask_eat_healthy
- - ask_exercise
-
+- affirm
+- payment_options
+- greet
+- address
+- option_selection
+- option_selected_recommend
+- goodbye
+- mood_great
+- mood_unhappy
+- deny
+- bot_challenge
+- inform
+- thankyou
+- out_of_scope
+- ask_lower_stress
+- ask_eat_healthy
+- ask_exercise
+entities:
+- address
+- exercise
+- option_select
+- payment_type
+- sleep
+- stress
 slots:
   confirm_exercise:
     type: text
@@ -34,81 +46,108 @@ slots:
   goal:
     type: text
     influence_conversation: false
-
-
-
-entities:
- - exercise
- - sleep
- - stress
-
+  option_select:
+    type: text
+    influence_conversation: false
+  address:
+    type: text
+    influence_conversation: false
+  payment_type:
+    type: text
+    influence_conversation: false
 responses:
+  utter_bot_info:
+  - text: Hey there this is a bot!
+  utter_select_options:
+  - text: given 1,2,3,4
+  utter_ask_place_order:
+  - text: Would you like to place the order?
+  utter_ask_payment_options:
+  - text: Please select the Payment Options! :)
+    buttons:
+    - title: Cod
+      payload: /payment_options
+    - title: Paytm
+      payload: /payment_options
+    - title: Debit Card
+      payload: /payment_options
+    - title: Credit Card
+      payload: /payment_options
+    - title: Google Pay
+      payload: /payment_options
+  utter_ask_user_to_selected_product:
+  - text: select 1 2 3 4.. 10
+  utter_order_placed:
+  - text: Your Order has been Placed! Thank You :)!
   utter_greet:
-  - text: "Hi! It's time for your daily wellness check. Tracking healthy habits is a great way to measure your progress over time. Would you like to answer a few questions about your health?"
+  - text: Hi! It's time for your daily wellness check. Tracking healthy habits is a great way to measure your progress over time. Would you like to answer a few questions about your health?
   utter_goodbye:
-  - text: "See you tomorrow. Bye!"
+  - text: See you tomorrow. Bye!
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: I am a bot, powered by Rasa.
   utter_ask_confirm_exercise:
   - text: Did you exercise yesterday? Don't sweat it if you didn't run a marathon - walks count!
   utter_ask_exercise:
   - text: What kind of exercise did you do 💪 ?
   utter_ask_sleep:
-  - text: "How much sleep did you get 💤  last night?"
+  - text: How much sleep did you get 💤  last night?
   utter_ask_diet:
-  - text: "Did you stick to a healthy diet 🥦  yesterday?"
+  - text: Did you stick to a healthy diet 🥦  yesterday?
   utter_ask_stress:
-  - text: "Is your stress level low, medium, or high 🧘 ?"
+  - text: Is your stress level low, medium, or high 🧘 ?
   utter_ask_goal:
-  - text: "Setting goals - even small ones - is a great way to focus your day. What do you want to accomplish today 🥇 ?"
+  - text: Setting goals - even small ones - is a great way to focus your day. What do you want to accomplish today 🥇 ?
   utter_slots_values:
-  - text: "Here's your daily wellness log:\n
-            - Exercised?: {confirm_exercise}\n
-            - Type of exercise: {exercise}\n
-            - Sleep: {sleep}\n
-            - Stuck to a healthy diet?: {diet}\n
-            - Stress level: {stress}\n
-            - Goal: {goal}"
+  - text: |-
+      Here's your daily wellness log:
+       - Exercised?: {confirm_exercise}
+       - Type of exercise: {exercise}
+       - Sleep: {sleep}
+       - Stuck to a healthy diet?: {diet}
+       - Stress level: {stress}
+       - Goal: {goal}
   utter_no_worries:
-  - text: "No problem :)"
+  - text: No problem :)
   utter_ask_continue:
-  - text: "Sorry, I don't quite understand. Do you want to continue?"
+  - text: Sorry, I don't quite understand. Do you want to continue?
   utter_stress_info:
-  - text: "It's ok to feel overwhelmed at times. Try to set realistic expectations and exercise time management techniques, like dividing large tasks into more manageable pieces. Relaxation techniques, like deep breathing and meditation, can also be beneficial."
+  - text: It's ok to feel overwhelmed at times. Try to set realistic expectations and exercise time management techniques, like dividing large tasks into more manageable pieces. Relaxation techniques, like deep breathing and meditation, can also be beneficial.
   utter_exercise_info:
-  - text: "Most healthy adults should aim to get about 150 min of moderate exercise per week. This includes activities like a brisk walk or yard work."
+  - text: Most healthy adults should aim to get about 150 min of moderate exercise per week. This includes activities like a brisk walk or yard work.
   utter_diet_info:
-  - text: "A healthy diet includes fruits and vegetables, whole grains, dairy, lean protein, and plant-based fats. While there is room in a healthy diet for treats, added sugar should be eaten sparingly. Aim for a variety of foods, and balance."
+  - text: A healthy diet includes fruits and vegetables, whole grains, dairy, lean protein, and plant-based fats. While there is room in a healthy diet for treats, added sugar should be eaten sparingly. Aim for a variety of foods, and balance.
 actions:
-  - action_submit
+- action_address_lookup
+- action_place_order
+- action_recommend_products
+- action_submit
+- utter_ask_payment_options
+- utter_ask_place_order
+- utter_bot_info
+- utter_order_placed
+- utter_select_options
 forms:
   health_form:
     confirm_exercise:
-      - type: from_intent
-        intent: affirm
-        value: true
-      - type: from_intent
-        intent: deny
-        value: false
+    - type: from_intent
+      intent: affirm
+      value: true
+    - type: from_intent
+      intent: deny
+      value: false
     exercise:
-      - type: from_entity
-        entity: exercise
+    - type: from_entity
+      entity: exercise
     sleep:
-      - type: from_entity
-        entity: sleep
+    - type: from_entity
+      entity: sleep
     stress:
-      - type: from_entity
-        entity: stress
+    - type: from_entity
+      entity: stress
     diet:
-      - type: from_text
-        intent: [inform]
+    - type: from_text
+      intent:
+      - inform
     goal:
-      - type: from_text
-        intent: inform
-    
-    
-
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+    - type: from_text
+      intent: inform

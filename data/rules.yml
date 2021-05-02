@@ -2,69 +2,75 @@ version: "2.0"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#   - intent: bot_challenge
+#   - action: utter_iamabot
+
+# - rule: Happy healthy willness check
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
 
 - rule: Happy healthy willness check
   steps:
   - intent: greet
-  - action: utter_greet
+  - action: utter_bot_info
+  - action: utter_select_options
 
-- rule: Activate form
-  steps:
-  - intent: affirm
-  - action: health_form
-  - active_loop: health_form
+# - rule: Activate form
+#   steps:
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
  
 
-- rule: Submit form
-  condition:
-  # Condition that form is active.
-  - active_loop: health_form
-  steps:
-  # Form is deactivated
-  - action: health_form
-  - active_loop: null
-  - slot_was_set:
-     - requested_slot: null
-  - action: action_submit
+# - rule: Submit form
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: health_form
+#   steps:
+#   # Form is deactivated
+#   - action: health_form
+#   - active_loop: null
+#   - slot_was_set:
+#      - requested_slot: null
+#   - action: action_submit
   
 
-- rule: Example of an unhappy path
-  condition:
-  # Condition that form is active.
-  - active_loop: health_form
-  steps:
-  # This unhappy path handles the case of an intent `out_of_scope`.
-  - intent: out_of_scope
-  - action: utter_ask_continue
-  # Return to form after handling the `out_of_scope` intent
+# - rule: Example of an unhappy path
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: health_form
+#   steps:
+#   # This unhappy path handles the case of an intent `out_of_scope`.
+#   - intent: out_of_scope
+#   - action: utter_ask_continue
+#   # Return to form after handling the `out_of_scope` intent
 
-- rule: Users accept to continue after interrupting
-  condition:
-  # Condition that form is active.
-  - active_loop: health_form
-  steps:
-  # Return to form after handling the `out_of_scope` intent
-  - intent: affirm
-  - action: health_form
-  - active_loop: health_form
+# - rule: Users accept to continue after interrupting
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: health_form
+#   steps:
+#   # Return to form after handling the `out_of_scope` intent
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
   
   
-- rule: Users Deny to continue
-  condition:
-  - active_loop: health_form
-  steps:
-  - intent: deny
-  - action: utter_no_worries
-  - action: utter_goodbye
-  - action: action_deactivate_loop
-  - active_loop: null
+# - rule: Users Deny to continue
+#   condition:
+#   - active_loop: health_form
+#   steps:
+#   - intent: deny
+#   - action: utter_no_worries
+#   - action: utter_goodbye
+#   - action: action_deactivate_loop
+#   - active_loop: null
   
