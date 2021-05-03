@@ -167,7 +167,7 @@ class ActionAddAddress(Action):
         current_address = tracker.latest_message['text']
         
         dispatcher.utter_message(
-           text=current_address)
+           text="Address_added!")
         return[SlotSet("address", current_address)]
     
 class ActionPlaceOrder(Action):

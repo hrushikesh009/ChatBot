@@ -17,7 +17,7 @@ rules:
 #   - intent: greet
 #   - action: utter_greet
 
-- rule: Happy healthy willness check
+- rule: Happy Welcome
   steps:
   - intent: greet
   - action: utter_bot_info

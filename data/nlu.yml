@@ -49,6 +49,7 @@ nlu:
     - yeah
     - yes
     - y
+    - Yes
 - intent: deny
   examples: |
     - never
@@ -64,38 +65,6 @@ nlu:
     - not great
     - nope
     - no
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
 - intent: thankyou
   examples: |
     - okay great thanks
@@ -106,10 +75,10 @@ nlu:
 - intent: option_selected_recommend
   examples: |
     - recommend me products
-    - Reommend products
+    - Recommend products
     - Can you recommend me some products
-    - Recommend me
-    - recommend me
+    - Recommend
+    - Recommend Some Products
 - intent: option_selection
   examples: |
     - [1](option_select)
@@ -122,8 +91,7 @@ nlu:
     - [8](option_select)
     - [9](option_select)
     - [10](option_select)
-    - [6](option_select)
-
+    - [9](option_select)
 - intent: address
   examples: |
     - F 702 Poonam Orchid
@@ -136,7 +104,7 @@ nlu:
     - F 101 New Nagar
     - B 509 rose Nagar
     - A 203 Virat Nagar
-
+    - A 102 virat Nagar
 - intent: payment_options
   examples: |
     - [Cod](payment_type)
@@ -144,15 +112,14 @@ nlu:
     - [Credit Card](payment_type)
     - [Paytm](payment_type)
     - [Google Pay](payment_type)
-
+    - [Cod](payment_type)
 - intent: option_search_provider
   examples: |
     - I could like to search a product
     - Search a Product
     - I opt for Search option
-    - Search a Product for me 
+    - Search a Product for me
     - Search
-
 - intent: Category
   examples: |
     - [Electronics](category_type)
@@ -161,51 +128,10 @@ nlu:
     - [Sports](category_type)
     - [Books](category_type)
     - [TV](category_type)
-    
-
-- intent: inform
-  examples: |
-    - a full [8 hours](sleep)
-    - only [four hours](sleep)
-    - about [six hours](sleep)
-    - [low](stress)
-    - [medium](stress)
-    - [high](stress)
-    - Yes, I went for a [run](exercise)
-    - uh huh an hour of [yoga](exercise)
-    - yep, I went for a [hike](exercise)
-    - Yes I took the dog for a [walk](exercise)
-    - Yeah, I played [tennis](exercise)
-    - I went [swimming](exercise)
-    - Took a [spin class](exercise)
-    - Did some [boxing](exercise)
-    - [rock climbing](exercise)
-    - played some [basketball](exercise)
-    - played [football](exercise)
-    - I did a [workout video](exercise)
-    - I want to get up early and go for a run
-    - Be more patient with my family
-    - Try to be a better friend
-    - Make sure to eat better tomorrow
-    - eat less junk food
-    - eat better
-    - spend less time on my phone
-    - don't procrastinate
-    - Go to bed earlier
-    - Don't stay up so late
-    - try to make some time to meditate
-    - i ate pretty healthy overall
-    - lots of fruits and vegetables
-    - I ate a salad
-    - too many snacks
-    - too many sweets
-    - too much junk food
-    - a lot of carbs
-    - too much fatty food
-    - Get more exercise
+    - [Mobile](category_type)
 - intent: out_of_scope
   examples: |
-    - that's not what I want to do
+    - that's not what I want
     - wait stop
     - you're no help
     - this is no help at all
@@ -222,30 +148,10 @@ nlu:
     - nevermind
     - I want to do something else
     - I changed my mind
+    - thats not what I want
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-- intent: ask_lower_stress
-  examples: |
-    - What to do if I am too stressed?
-    - How can I lower stress level?
-    - What are some good ways to lower stress?
-    - What are good ways to relax?
-    - What are some things I can do to lower my stress?
-- intent: ask_eat_healthy
-  examples: |
-    - What's considered as a healthy diet?
-    - What's considered a good diet?
-    - How do I follow a healthy diet?
-    - What's an example of a healthy diet?
-    - How do I eat healthy?
-- intent: ask_exercise
-  examples: |
-    - What's a good amount of exercise I should be getting?
-    - How much exercise is recommended?
-    - Tips for exercise!
-    - How many times per week should I go to the gym?
-    - How much exercise should I do everyday?

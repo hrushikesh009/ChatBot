@@ -3,12 +3,15 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- Category
+- out_of_scope
+- option_search_provider
+- option_selected_recommend
 - address
 - affirm
-- option_selection
 - greet
-- option_selected_recommend
 - payment_options
+- option_selection
 - goodbye
 - mood_great
 - mood_unhappy
@@ -16,12 +19,9 @@ intents:
 - bot_challenge
 - inform
 - thankyou
-- out_of_scope
 - ask_lower_stress
 - ask_eat_healthy
 - ask_exercise
-- option_search_provider
-- Category
 entities:
 - category_type
 - exercise
@@ -64,22 +64,29 @@ responses:
   utter_bot_info:
   - text: Hey there this is a bot!
   utter_select_options:
-  - text: given 1,2,3,4
+  - text: Here is the current function of our bot!;)
+    buttons:
+    - title: Recommend Products
+      payload: Recommend
+    - title: Search Products
+      payload: Search
+    - title: Support and Help
+      payload: Support
   utter_ask_place_order:
   - text: Would you like to place the order?
   utter_ask_payment_options:
   - text: Please select the Payment Options! :)
     buttons:
-    - title: "Cod"
-      payload: "Cod"
-    - title: "Paytm"
-      payload: "Paytm"
-    - title: "Debit Card"
-      payload: "Debit Card"
-    - title: "Credit Card"
-      payload: "Credit Card"
-    - title: "Google Pay"
-      payload: "Google Pay"
+    - title: Cod
+      payload: Cod
+    - title: Paytm
+      payload: Paytm
+    - title: Debit Card
+      payload: Debit Card
+    - title: Credit Card
+      payload: Credit Card
+    - title: Google Pay
+      payload: Google Pay
   utter_ask_user_to_selected_product:
   - text: select 1 2 3 4.. 10
   utter_order_placed:
@@ -124,18 +131,18 @@ responses:
   utter_diet_info:
   - text: A healthy diet includes fruits and vegetables, whole grains, dairy, lean protein, and plant-based fats. While there is room in a healthy diet for treats, added sugar should be eaten sparingly. Aim for a variety of foods, and balance.
 actions:
+- action_add_address
 - action_address_lookup
 - action_place_order
 - action_recommend_products
+- action_search_products
 - action_submit
+- utter_ask_category_type
 - utter_ask_payment_options
 - utter_ask_place_order
 - utter_bot_info
 - utter_order_placed
 - utter_select_options
-- action_add_address
-- action_search_products
- 
 forms:
   health_form:
     confirm_exercise:

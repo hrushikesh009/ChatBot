@@ -166,4 +166,89 @@ stories:
   - intent: affirm
   - action: utter_order_placed
 
+- story: When User jumps from search Provider to Recommend Products
+  steps:
+  - intent: greet
+  - action: utter_bot_info
+  - action: utter_select_options
+  - intent: option_search_provider
+  - action: utter_ask_category_type
+  - slot_was_set:
+    - category_type: null
+  - intent: Category
+    entities:
+    - category_type: 'Mobile'
+  - slot_was_set:
+    - category_type: 'Mobile'
+  - action: action_search_products
+  - slot_was_set:
+    - option_select: null
+  - intent: out_of_scope
+    entities:
+    - option_select: '4'
+  - slot_was_set:
+    - option_select: '4'
+  - action: utter_select_options
+  - intent: option_selected_recommend
 
+- story: When User jumps from Recommend Products to Search Provider
+  steps:
+  - intent: greet
+  - action: utter_bot_info
+  - action: utter_select_options
+  - intent: option_selected_recommend
+  - action: action_recommend_products
+  - slot_was_set:
+    - option_select: null
+  - intent: out_of_scope
+    entities:
+    - option_select: '4'
+  - slot_was_set:
+    - option_select: '4'
+  - action: utter_select_options
+  - intent: option_search_provider
+   
+  
+  
+
+
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_bot_info
+  - action: utter_select_options
+  - intent: option_selected_recommend
+  - action: action_recommend_products
+  - intent: out_of_scope
+  - action: utter_select_options
+  - intent: option_search_provider
+  - action: utter_ask_category_type
+  - intent: Category
+    entities:
+    - category_type: Mobile
+  - slot_was_set:
+    - category_type: Mobile
+  - action: action_search_products
+  - intent: option_selection
+    entities:
+    - option_select: '9'
+  - slot_was_set:
+    - option_select: '9'
+  - action: utter_ask_place_order
+  - intent: affirm
+  - action: action_address_lookup
+  - intent: address
+  - action: action_add_address
+  - slot_was_set:
+    - address: A 102 virat Nagar
+  - action: utter_ask_payment_options
+  - intent: payment_options
+    entities:
+    - payment_type: Cod
+  - slot_was_set:
+    - payment_type: Cod
+  - action: action_place_order
+  - intent: affirm
+  - action: utter_order_placed
