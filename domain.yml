@@ -13,15 +13,11 @@ intents:
 - payment_options
 - option_selection
 - goodbye
-- mood_great
-- mood_unhappy
 - deny
 - bot_challenge
 - inform
 - thankyou
-- ask_lower_stress
-- ask_eat_healthy
-- ask_exercise
+
 entities:
 - category_type
 - exercise
@@ -29,6 +25,7 @@ entities:
 - payment_type
 - sleep
 - stress
+
 slots:
   confirm_exercise:
     type: text
@@ -60,6 +57,7 @@ slots:
   category_type:
     type: text
     influence_conversation: false
+
 responses:
   utter_bot_info:
   - text: Hey there this is a bot!
@@ -143,6 +141,7 @@ actions:
 - utter_bot_info
 - utter_order_placed
 - utter_select_options
+
 forms:
   health_form:
     confirm_exercise:
