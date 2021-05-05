@@ -3,29 +3,28 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- Category
-- out_of_scope
-- option_search_provider
-- option_selected_recommend
-- address
-- affirm
 - greet
+- affirm
 - payment_options
+- option_search_provider
 - option_selection
+- Category
+- address
+- out_of_scope
+- option_selected_recommend
 - goodbye
 - deny
 - bot_challenge
 - inform
 - thankyou
-
 entities:
 - category_type
 - option_select
 - payment_type
-
 slots:
   products_list:
     type: list
+    influence_conversation: true
   option_select:
     type: text
     influence_conversation: false
@@ -38,7 +37,6 @@ slots:
   category_type:
     type: text
     influence_conversation: false
-
 responses:
   utter_bot_info:
   - text: Hey there this is a bot!
@@ -53,10 +51,13 @@ responses:
       payload: Support
   utter_ask_place_order:
   - text: Would you like to place the order?
+  utter_ask_category_type:
+  - text: Which type of Category do you refer? ;)
   utter_ask_payment_options:
   - text: Please select the Payment Options! :)
     buttons:
     - title: Cod
+      image: https://images-na.ssl-images-amazon.com/images/I/41FT38SFJqL._SX38_SY50_CR,0,0,38,50_.jpg
       payload: Cod
     - title: Paytm
       payload: Paytm
@@ -68,10 +69,10 @@ responses:
       payload: Google Pay
   utter_ask_user_to_selected_product:
   - text: |-
-       Product_details:
-        - Product_name: {}
-        - Product_image: {}
-
+      Product_details:
+       - Product_name: {products_list[0]['title']}
+       - Product_image:
+          - image: {products_list[0]['image'][0]}
   utter_order_placed:
   - text: Your Order has been Placed! Thank You :)!
   utter_goodbye:
@@ -91,7 +92,6 @@ responses:
   - text: No problem :)
   utter_ask_continue:
   - text: Sorry, I don't quite understand. Do you want to continue?
-  
 actions:
 - action_add_address
 - action_address_lookup
@@ -104,28 +104,3 @@ actions:
 - utter_bot_info
 - utter_order_placed
 - utter_select_options
-
-# forms:
-#   health_form:
-#     confirm_exercise:
-#     - type: from_intent
-#       intent: affirm
-#       value: true
-#     - type: from_intent
-#       intent: deny
-#       value: false
-#     exercise:
-#     - type: from_entity
-#       entity: exercise
-#     sleep:
-#     - type: from_entity
-#       entity: sleep
-#     stress:
-#     - type: from_entity
-#       entity: stress
-#     diet:
-#     - type: from_text
-#       intent: inform
-#     goal:
-#     - type: from_text
-#       intent: inform

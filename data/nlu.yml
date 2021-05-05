@@ -86,12 +86,7 @@ nlu:
     - [3](option_select)
     - [4](option_select)
     - [5](option_select)
-    - [6](option_select)
-    - [7](option_select)
-    - [8](option_select)
-    - [9](option_select)
-    - [10](option_select)
-    
+    - [2](option_select)
 - intent: address
   examples: |
     - F 702 Poonam Orchid
@@ -105,6 +100,7 @@ nlu:
     - B 509 rose Nagar
     - A 203 Virat Nagar
     - A 102 virat Nagar
+    - F 702 Poonam Nagar
 - intent: payment_options
   examples: |
     - [Cod](payment_type)
@@ -128,7 +124,8 @@ nlu:
     - [Sports](category_type)
     - [Books](category_type)
     - [TV](category_type)
-    - ['Beauty'](category_type)
+    - [Beauty](category_type)
+    - [Clothing](category_type)
 - intent: out_of_scope
   examples: |
     - that's not what I want

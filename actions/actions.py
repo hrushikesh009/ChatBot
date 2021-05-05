@@ -143,11 +143,14 @@ class ActionSearchProvider(Action):
        
         Category = tracker.get_slot("category_type")
 
-        product_list = retrieve_data(Category)
-        print(product_list[0]['image'][0])
-        dispatcher.utter_message(
-           response ="utter_ask_user_to_selected_product")
-        return[]
+        product = retrieve_data(Category)
+        
+        for i in range(len(product)):
+            dispatcher.utter_message(
+                text ="Product Title: {}".format(product[i]['title']),
+                image = str(product[i]['image'][0])
+                )
+        return[SlotSet("products_list", product)]
 
 
 
