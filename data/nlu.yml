@@ -91,7 +91,7 @@ nlu:
     - [8](option_select)
     - [9](option_select)
     - [10](option_select)
-    - [9](option_select)
+    
 - intent: address
   examples: |
     - F 702 Poonam Orchid
@@ -128,7 +128,7 @@ nlu:
     - [Sports](category_type)
     - [Books](category_type)
     - [TV](category_type)
-    - [Mobile](category_type)
+    - ['Beauty'](category_type)
 - intent: out_of_scope
   examples: |
     - that's not what I want

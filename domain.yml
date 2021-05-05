@@ -20,31 +20,12 @@ intents:
 
 entities:
 - category_type
-- exercise
 - option_select
 - payment_type
-- sleep
-- stress
 
 slots:
-  confirm_exercise:
-    type: text
-    influence_conversation: false
-  exercise:
-    type: text
-    influence_conversation: false
-  sleep:
-    type: text
-    influence_conversation: false
-  stress:
-    type: text
-    influence_conversation: false
-  diet:
-    type: text
-    influence_conversation: false
-  goal:
-    type: text
-    influence_conversation: false
+  products_list:
+    type: list
   option_select:
     type: text
     influence_conversation: false
@@ -86,29 +67,17 @@ responses:
     - title: Google Pay
       payload: Google Pay
   utter_ask_user_to_selected_product:
-  - text: select 1 2 3 4.. 10
+  - text: |-
+       Product_details:
+        - Product_name: {}
+        - Product_image: {}
+
   utter_order_placed:
   - text: Your Order has been Placed! Thank You :)!
-  utter_greet:
-  - text: Hi! It's time for your daily wellness check. Tracking healthy habits is a great way to measure your progress over time. Would you like to answer a few questions about your health?
   utter_goodbye:
   - text: See you tomorrow. Bye!
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
-  utter_ask_category_type:
-  - text: Which category of product would you like to search for?
-  utter_ask_confirm_exercise:
-  - text: Did you exercise yesterday? Don't sweat it if you didn't run a marathon - walks count!
-  utter_ask_exercise:
-  - text: What kind of exercise did you do 💪 ?
-  utter_ask_sleep:
-  - text: How much sleep did you get 💤  last night?
-  utter_ask_diet:
-  - text: Did you stick to a healthy diet 🥦  yesterday?
-  utter_ask_stress:
-  - text: Is your stress level low, medium, or high 🧘 ?
-  utter_ask_goal:
-  - text: Setting goals - even small ones - is a great way to focus your day. What do you want to accomplish today 🥇 ?
   utter_slots_values:
   - text: |-
       Here's your daily wellness log:
@@ -122,19 +91,13 @@ responses:
   - text: No problem :)
   utter_ask_continue:
   - text: Sorry, I don't quite understand. Do you want to continue?
-  utter_stress_info:
-  - text: It's ok to feel overwhelmed at times. Try to set realistic expectations and exercise time management techniques, like dividing large tasks into more manageable pieces. Relaxation techniques, like deep breathing and meditation, can also be beneficial.
-  utter_exercise_info:
-  - text: Most healthy adults should aim to get about 150 min of moderate exercise per week. This includes activities like a brisk walk or yard work.
-  utter_diet_info:
-  - text: A healthy diet includes fruits and vegetables, whole grains, dairy, lean protein, and plant-based fats. While there is room in a healthy diet for treats, added sugar should be eaten sparingly. Aim for a variety of foods, and balance.
+  
 actions:
 - action_add_address
 - action_address_lookup
 - action_place_order
 - action_recommend_products
 - action_search_products
-- action_submit
 - utter_ask_category_type
 - utter_ask_payment_options
 - utter_ask_place_order
@@ -142,27 +105,27 @@ actions:
 - utter_order_placed
 - utter_select_options
 
-forms:
-  health_form:
-    confirm_exercise:
-    - type: from_intent
-      intent: affirm
-      value: true
-    - type: from_intent
-      intent: deny
-      value: false
-    exercise:
-    - type: from_entity
-      entity: exercise
-    sleep:
-    - type: from_entity
-      entity: sleep
-    stress:
-    - type: from_entity
-      entity: stress
-    diet:
-    - type: from_text
-      intent: inform
-    goal:
-    - type: from_text
-      intent: inform
+# forms:
+#   health_form:
+#     confirm_exercise:
+#     - type: from_intent
+#       intent: affirm
+#       value: true
+#     - type: from_intent
+#       intent: deny
+#       value: false
+#     exercise:
+#     - type: from_entity
+#       entity: exercise
+#     sleep:
+#     - type: from_entity
+#       entity: sleep
+#     stress:
+#     - type: from_entity
+#       entity: stress
+#     diet:
+#     - type: from_text
+#       intent: inform
+#     goal:
+#     - type: from_text
+#       intent: inform

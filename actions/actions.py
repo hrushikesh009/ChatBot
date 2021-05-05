@@ -6,6 +6,12 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet, EventType
 
+import firebase_admin
+from firebase_admin import db
+
+cred_obj = firebase_admin.credentials.Certificate('Firebasekey.json')
+default_app = firebase_admin.initialize_app(cred_obj,{'databaseURL':'https://rasa-78cd0-default-rtdb.firebaseio.com/'})
+
 # import requests
 # import json
 # import os
@@ -97,6 +103,13 @@ from rasa_sdk.events import SlotSet, EventType
 #         dispatcher.utter_message(
 #             text="Thanks, your answers have been recorded!")
 #         return []
+def retrieve_data(Category):
+    ref = db.reference('/')
+    for i in range(3):
+        cat = 'Sub_Category' + '/' + str(i)
+        result = ref.child('Products').order_by_child(cat).equal_to(Category).limit_to_first(5).get()
+        if result is not None:
+            return list(result.values())
 
 class ActionRecommender(Action):
 
@@ -127,9 +140,11 @@ class ActionSearchProvider(Action):
         tracker: Tracker,
         domain: "DomainDict"
     ) -> List[Dict[Text, Any]]:
-
+       
         Category = tracker.get_slot("category_type")
-        
+
+        product_list = retrieve_data(Category)
+        print(product_list[0]['image'][0])
         dispatcher.utter_message(
            response ="utter_ask_user_to_selected_product")
         return[]
@@ -165,6 +180,7 @@ class ActionAddAddress(Action):
     ) -> List[Dict[Text, Any]]:
 
         current_address = tracker.latest_message['text']
+        
         
         dispatcher.utter_message(
            text="Address_added!")
