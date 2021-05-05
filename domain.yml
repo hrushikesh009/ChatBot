@@ -3,13 +3,13 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- greet
+- Category
 - affirm
 - payment_options
+- address
+- greet
 - option_search_provider
 - option_selection
-- Category
-- address
 - out_of_scope
 - option_selected_recommend
 - goodbye

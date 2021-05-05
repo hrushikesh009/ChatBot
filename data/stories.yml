@@ -96,50 +96,7 @@ stories:
   - intent: option_selected_recommend
   - action: action_recommend_products
   - slot_was_set:
-    - option_select: null
-  - intent: option_selection
-    entities:
-    - option_select: '4'
-  - slot_was_set:
-    - option_select: '4'
-  - action: utter_ask_place_order
-  - intent: affirm
-  - action: action_address_lookup
-  - slot_was_set:
-    - address: null
-  - intent: address
-  - slot_was_set:
-    - address: 'F 702 Poonam Orchid'
-  - action: action_add_address
-  - action: utter_ask_payment_options
-  - slot_was_set:
-    - payment_type: null
-  - intent: payment_options
-    entities:
-    - payment_type: 'Cod'
-  - slot_was_set:
-    - payment_type: 'Cod'
-  - action: action_place_order
-  - intent: affirm
-  - action: utter_order_placed
-
-- story: happy path for Search Provider
-  steps:
-  - intent: greet
-  - action: utter_bot_info
-  - action: utter_select_options
-  - intent: option_search_provider
-  - action: utter_ask_category_type
-  - slot_was_set:
-    - category_type: null
-  - intent: Category
-    entities:
-    - category_type: 'Mobile'
-  - slot_was_set:
-    - category_type: 'Mobile'
-  - action: action_search_products
-  - slot_was_set:
-    - option_select: null
+    - products_list: null
   - intent: option_selection
     entities:
     - option_select: '4'
@@ -186,7 +143,7 @@ stories:
   - intent: option_selected_recommend
   - action: action_recommend_products
   - slot_was_set:
-    - option_select: null
+    - products_list: null
   - intent: option_selection
     entities:
     - option_select: '4'
@@ -234,7 +191,7 @@ stories:
     - category_type: Mobile
   - action: action_search_products
   - slot_was_set:
-    - option_select: null
+    - products_list: null
   - intent: option_selection
     entities:
     - option_select: '9'
@@ -268,122 +225,43 @@ stories:
   - action: utter_ask_category_type
   - intent: Category
     entities:
-    - category_type: Clothing
+    - category_type: Beauty
   - slot_was_set:
-    - category_type: Clothing
+    - category_type: Beauty
   - action: action_search_products
   - slot_was_set:
     - products_list:
-      - ProdID: B00411SWFE
+      - ProdID: B01EPOQOTM
         Rank:
-        - '6047731'
+        - '41696'
         Sub_Category:
-        - Clothing
-        - Shoes
-        - Jewelry
-        brand: ''
-        description: 4 piece stretch knit apron style dress with lace trim neckline and heart bow detail with contrast organza puff sleeves and multi layered petticoat skirt with contrast satin ribbon trim and blue innovative fiber optic lights with a hidden pocket for on/off switch
+        - Beauty
+        - Personal
+        - Care
+        brand: Rinastore
+        description: '<b>Specifications</b>: <br>Material: 600D Waterproof Oxford Cloth <br>Item Weight: 4.58oz'
         image:
-        - https://images-na.ssl-images-amazon.com/images/I/41FT38SFJqL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41yLlpskjrL._SX38_SY50_CR,0,0,38,50_.jpg
-        price: 31.0
-        rank: 6,047,731 in Clothing, Shoes & Jewelry (
-        rating: 3.83333
-        title: Dreamgirl Juniors Wonderland's De-Light 4-Piece Knit Apron Style Dress
-      - ProdID: B004XVVJ66
-        Rank:
-        - '3425872'
-        Sub_Category:
-        - Clothing
-        - Shoes
-        - Jewelry
-        brand: Flap Happy
-        description: 'The Original UPF 50+ Flap Happy Hat with Ties is designed to provide excellent sun protection from damaging UV rays. The hat has a large brim to shade the face and the flap covers the ears and neck from the harsh rays of the sun with an elastic band to help fit snuggly around the head. Also features ties for a stay-on fit. This hats looks terrific when paired with Flap Happy Swimwear or Playwear. Perfect for any outdoor or water activity and practical and good looking for every day of the year. Your child will love to wear this hat for its comfort. Available in an array of colors and fun prints. Makes a Great Gift. Flap Happy Hat Size Chart, measured Head Circumference in Inches: X-Small fits 14-15.5" (0-3m), Small fits 15-17" (about 3-6 months). Medium fits 17-18.5" (about 6-12 months). Large fits 18.5-20" (about 12-24 months). X-Large fits 20-22" (about 2 years & up). XX Large fits 21-22.5" (about 3 years & up).'
-        image:
-        - https://images-na.ssl-images-amazon.com/images/I/411GOZPKxlL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41rDC9egyoL._SX38_SY50_CR,0,0,38,50_.jpg
-        price: 18.0
-        rank: 3,425,872 in Clothing, Shoes & Jewelry (
-        rating: 5.0
-        title: Flap Happy Baby UPF 50+ Flap Hat with Ties
-      - ProdID: B0057PIKAU
-        Rank:
-        - '913838'
-        Sub_Category:
-        - Clothing
-        - Shoes
-        - Jewelry
-        brand: Selini
-        description: The Silk is one of the worlds most luxurious materials, is a natural protein fiber produced by insects and cultivated most commonly in China and India. Silk's absorbency makes it comfortable to wear in warm weather and while active. These silk ties can elevate any look, and give you just the right touch of gentlemanly professionalism. Ties also allow you to make your wardrobe more versatile, as it is another element that you can mix and match with different shirts and suits for infinite outfit combinations.
-        image:
-        - https://images-na.ssl-images-amazon.com/images/I/41JDnqK5sKL._SR38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/512CCCfZaOL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/51kEOPvafYL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41m8HnqTo2L._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41t%2BTz8vanL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/418uwfwVusL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41xktS97hXL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41Z5-CGXspL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/51OF3yw66PL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41HLa7Bi%2BlL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/51X1bmqDj4L._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41tFZJ1avjL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/51cbMSxxZaL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41OzCtXx7QL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/51e8MlyncTL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41bt04HqJzL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41Wj7eW%2B1rL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/410aWgR1GeL._SX38_SY50_CR,0,0,38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/319-9a948JL._SX38_SY50_CR,0,0,38,50_.jpg
-        price: 16.99
-        rank: 913,838 in Clothing, Shoes & Jewelry (
-        rating: 3.99
-        title: Solid Color 100% Silk Tie
-      - ProdID: B006FJ43M6
-        Rank:
-        - '2333441'
-        Sub_Category:
-        - Clothing
-        - Shoes
-        - Jewelry
-        brand: Eternal Tungsten
-        description: This 8mm wide Black Tungsten Carbide Ring has a pipe cut flat shape design and beveled edges. This ring has a non-shiny brush finished black coating in the center and the beveled edges have been buffed to a shiny metallic silver color. The modern style of this ring is now available in black for those who want something striking. This style is also available in 6 mm. We are a real jewelry store that offers engraving and warranties. All of our rings come with Free Shipping, Free Engraving and Lifetime Warranty. Please click on the images under the picture of the ring for details.
-        image:
-        - https://images-na.ssl-images-amazon.com/images/I/51UkAy5z0GL._US40_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/61HZRgS21XL._US40_.jpg
-        price: 66.5
-        rank: 2,333,441 in Clothing, Shoes & Jewelry (
-        rating: 4.84615
-        title: 8 mm Mens Black Tungsten Carbide Rings Wedding Bands Brushed Center and Polished Silver Edges
-      - ProdID: B0077CKWT8
-        Rank:
-        - '27986'
-        Sub_Category:
-        - Clothing
-        - Shoes
-        - Jewelry
-        brand: ''
-        description: Inspired by classic pencil case design, the settlement case features a distinctive brass zipper detailed with a leather pull.
-        image:
-        - https://images-na.ssl-images-amazon.com/images/I/31pV0N38zEL._SR38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/31Nk4LJt8rL._SR38,50_.jpg
-        - https://images-na.ssl-images-amazon.com/images/I/41imZX6EHkL._SX38_SY50_CR,0,0,38,50_.jpg
-        price: 19.95
-        rank: 27,986 in Clothing, Shoes & Jewelry (
-        rating: 4.70313
-        title: Herschel Supply Co. Men's Settlement Case
+        - https://images-na.ssl-images-amazon.com/images/I/51XJBfNkS6L._SS40_.jpg
+        - https://images-na.ssl-images-amazon.com/images/I/51deNd0ODFL._SS40_.jpg
+        - https://images-na.ssl-images-amazon.com/images/I/51u8LWtRy3L._SS40_.jpg
+        - https://images-na.ssl-images-amazon.com/images/I/417leCMe5sL._SS40_.jpg
+        - https://images-na.ssl-images-amazon.com/images/I/41p2gu4zqrL._SS40_.jpg
+        price: 9.99
+        rank: 41,696 in Beauty & Personal Care (
+        rating: 3.81481
+        title: Piano Keys Music Waterproof Oxford Cloth Handbag Shoulder Tote Shopping Bag Gift (Black-Large-1)
   - intent: option_selection
     entities:
-    - option_select: '2'
+    - option_select: '1'
   - slot_was_set:
-    - option_select: '2'
+    - option_select: '1'
   - action: utter_ask_place_order
   - intent: affirm
   - action: action_address_lookup
   - intent: address
   - action: action_add_address
   - slot_was_set:
-    - address: F 702 Poonam Nagar
+    - address: F 102 Poonam Orchid
   - action: utter_ask_payment_options
   - intent: payment_options
     entities:

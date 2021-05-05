@@ -86,7 +86,7 @@ nlu:
     - [3](option_select)
     - [4](option_select)
     - [5](option_select)
-    - [2](option_select)
+    
 - intent: address
   examples: |
     - F 702 Poonam Orchid
@@ -101,6 +101,7 @@ nlu:
     - A 203 Virat Nagar
     - A 102 virat Nagar
     - F 702 Poonam Nagar
+    - F 102 Poonam Orchid
 - intent: payment_options
   examples: |
     - [Cod](payment_type)
@@ -108,7 +109,7 @@ nlu:
     - [Credit Card](payment_type)
     - [Paytm](payment_type)
     - [Google Pay](payment_type)
-    - [Cod](payment_type)
+    
 - intent: option_search_provider
   examples: |
     - I could like to search a product
@@ -125,7 +126,7 @@ nlu:
     - [Books](category_type)
     - [TV](category_type)
     - [Beauty](category_type)
-    - [Clothing](category_type)
+    
 - intent: out_of_scope
   examples: |
     - that's not what I want
@@ -145,7 +146,7 @@ nlu:
     - nevermind
     - I want to do something else
     - I changed my mind
-    - thats not what I want
+    
 - intent: bot_challenge
   examples: |
     - are you a bot?

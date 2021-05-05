@@ -144,12 +144,17 @@ class ActionSearchProvider(Action):
         Category = tracker.get_slot("category_type")
 
         product = retrieve_data(Category)
-        
-        for i in range(len(product)):
+
+        if product is None:
             dispatcher.utter_message(
-                text ="Product Title: {}".format(product[i]['title']),
-                image = str(product[i]['image'][0])
+                text = "Sorry But we are not able to find Products related to the your Category :(!"
                 )
+        else:
+            for i in range(len(product)):
+                dispatcher.utter_message(
+                    text ="Product Title: {}".format(product[i]['title']),
+                    image = str(product[i]['image'][0])
+                    )
         return[SlotSet("products_list", product)]
 
 
@@ -206,5 +211,5 @@ class ActionPlaceOrder(Action):
         if Payment_selected == "Cod":
             dispatcher.utter_message(text="Please Confirm Your Cod Order by typing Yes")
         else:
-            dispatcher.utter_message(text="Here goes your Link")
+            dispatcher.utter_message(text="Here goes your Link!")
         return []
